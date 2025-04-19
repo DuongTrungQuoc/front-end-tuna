@@ -2,6 +2,7 @@ import { BsSunFill } from "react-icons/bs";
 import { HiOutlineMenu } from "react-icons/hi";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo-herov2.svg";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -15,7 +16,8 @@ const Header = () => {
         <div className="flex items-center">
           <Link to="/">
             <img
-              src="../src/assets/logo-herov2.svg"
+              src={logo}
+              alt="BIGTUNA Logo"
               className="mr-2 h-12 cursor-pointer"
             />
           </Link>
