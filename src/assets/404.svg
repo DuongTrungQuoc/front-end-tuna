@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>404 Error</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="gradient">
+            <stop stop-color="#3B82F6" offset="0%"/>
+            <stop stop-color="#0EA5E9" offset="100%"/>
+        </linearGradient>
+        <!-- Animation for fish swimming -->
+        <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="-100,0"
+            to="900,0"
+            dur="10s"
+            repeatCount="indefinite"/>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Background waves -->
+        <path d="M0,150 C200,50 400,250 800,150 L800,600 L0,600" fill="#EFF6FF" opacity="0.3"/>
+        <path d="M0,250 C200,150 400,350 800,250 L800,600 L0,600" fill="#DBEAFE" opacity="0.5"/>
+        <path d="M0,350 C200,250 400,450 800,350 L800,600 L0,600" fill="#BFDBFE" opacity="0.7"/>
+        
+        <!-- 4 -->
+        <path d="M200,100 L200,300 L100,300 L300,100 L300,400" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- 0 -->
+        <circle cx="400" cy="250" r="100" stroke="url(#gradient)" stroke-width="40" fill="none"/>
+        
+        <!-- 4 -->
+        <path d="M600,100 L600,300 L500,300 L700,100 L700,400" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- Fish group -->
+        <g transform="translate(350, 400)">
+            <!-- Fish body -->
+            <path d="M40,0 
+                     C100,-30 160,-10 200,20 
+                     C160,50 100,70 40,40 
+                     C60,20 60,20 40,0 Z" 
+                  fill="url(#gradient)" opacity="0.9">
+                <!-- Wiggle animation for fish body -->
+                <animate 
+                    attributeName="d" 
+                    dur="2s"
+                    repeatCount="indefinite"
+                    values="M40,0 C100,-30 160,-10 200,20 C160,50 100,70 40,40 C60,20 60,20 40,0 Z;
+                            M40,0 C100,-20 160,0 200,20 C160,40 100,60 40,40 C60,20 60,20 40,0 Z;
+                            M40,0 C100,-30 160,-10 200,20 C160,50 100,70 40,40 C60,20 60,20 40,0 Z"/>
+            </path>
+            
+            <!-- Fish eye -->
+            <circle cx="70" cy="15" r="8" fill="#FFFFFF"/>
+            <circle cx="73" cy="15" r="4" fill="#333333">
+                <!-- Eye blink animation -->
+                <animate
+                    attributeName="ry"
+                    values="4;0.5;4"
+                    dur="3s"
+                    repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Happy mouth -->
+            <path d="M85,25 Q95,35 105,25" 
+                  stroke="#333333" 
+                  stroke-width="3" 
+                  fill="none" 
+                  stroke-linecap="round"/>
+            
+            <!-- Tail fin -->
+            <path d="M180,20 L220,-10 L220,50 Z" 
+                  fill="url(#gradient)">
+                <!-- Tail wiggle animation -->
+                <animate
+                    attributeName="d"
+                    dur="0.5s"
+                    repeatCount="indefinite"
+                    values="M180,20 L220,-10 L220,50 Z;
+                            M180,20 L210,0 L220,40 Z;
+                            M180,20 L220,-10 L220,50 Z"/>
+            </path>
+            
+            <!-- Top fin -->
+            <path d="M120,-10 L140,10 L160,-15 Z" 
+                  fill="url(#gradient)" 
+                  opacity="0.8"/>
+            
+            <!-- Bottom fin -->
+            <path d="M120,50 L140,30 L160,55 Z" 
+                  fill="url(#gradient)" 
+                  opacity="0.8"/>
+            
+            <!-- Bubbles -->
+            <g>
+                <circle cx="230" cy="10" r="5" fill="#FFFFFF" opacity="0.6">
+                    <animate
+                        attributeName="cy"
+                        from="20"
+                        to="-20"
+                        dur="2s"
+                        repeatCount="indefinite"/>
+                    <animate
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="2s"
+                        repeatCount="indefinite"/>
+                </circle>
+                <circle cx="240" cy="25" r="3" fill="#FFFFFF" opacity="0.6">
+                    <animate
+                        attributeName="cy"
+                        from="25"
+                        to="-15"
+                        dur="1.5s"
+                        repeatCount="indefinite"/>
+                    <animate
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        repeatCount="indefinite"/>
+                </circle>
+            </g>
+        </g>
+    </g>
+</svg> 
