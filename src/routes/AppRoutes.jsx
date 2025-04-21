@@ -1,16 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
-import DefaultPage from "../pages/DefaultPage.jsx";
-import HomePage from "../pages/HomePage.jsx";
-import Login from "../pages/Login.jsx";
-import Register from "../pages/Register.jsx";
-import User from "../pages/User.jsx";
-import AdminHomePage from "../pages/AdminHomePage.jsx";
-import ChatAI from "../pages/ChatAI.jsx";
-import ChatDetail from "../pages/ChatDetail.jsx";
-import GuestUser from "../pages/GuestUser.jsx";
-import RGBPredict from "../pages/RGBPredict.jsx";
-import LabPredict from "../pages/LabPredict.jsx";
-import NotFound from "../pages/NotFound.jsx";
+import { lazyLoad } from "../utils/lazyLoad.jsx";
+
+// Lazy load all pages
+const DefaultPage = lazyLoad(() => import("../pages/DefaultPage.jsx"));
+const HomePage = lazyLoad(() => import("../pages/HomePage.jsx"));
+const Login = lazyLoad(() => import("../pages/Login.jsx"));
+const Register = lazyLoad(() => import("../pages/Register.jsx"));
+const User = lazyLoad(() => import("../pages/User.jsx"));
+const AdminHomePage = lazyLoad(() => import("../pages/AdminHomePage.jsx"));
+const ChatAI = lazyLoad(() => import("../pages/ChatAI.jsx"));
+const ChatDetail = lazyLoad(() => import("../pages/ChatDetail.jsx"));
+const GuestUser = lazyLoad(() => import("../pages/GuestUser.jsx"));
+const RGBPredict = lazyLoad(() => import("../pages/RGBPredict.jsx"));
+const LabPredict = lazyLoad(() => import("../pages/LabPredict.jsx"));
+const NotFound = lazyLoad(() => import("../pages/NotFound.jsx"));
 
 const router = createBrowserRouter([
   {
