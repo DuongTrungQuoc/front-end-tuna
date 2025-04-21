@@ -9,9 +9,8 @@ export default defineConfig({
       "/v1": {
         target: "https://back-end-tuna.onrender.com",
         changeOrigin: true,
-        secure: false,
+        secure: true,
         withCredentials: true,
-        timeout: 60000, // Increase timeout to 60 seconds
       },
     },
   },

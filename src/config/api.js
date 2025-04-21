@@ -1,7 +1,5 @@
 const API_CONFIG = {
-  baseURL: import.meta.env.PROD
-    ? "https://back-end-tuna.onrender.com"
-    : "http://localhost:8000",
+  baseURL: "https://back-end-tuna.onrender.com",
 };
 
 export default API_CONFIG;
