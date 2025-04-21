@@ -6,7 +6,7 @@ import Banner from "../components/Banner/Banner";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section - Banner */}
       <Banner />
 

@@ -44,10 +44,12 @@ const SideMenu = ({ isOpen, onClose }) => {
       <div className="fixed inset-0 bg-black/50" onClick={onClose}></div>
 
       {/* Menu */}
-      <div className="relative w-64 bg-white shadow-lg">
+      <div className="relative w-64 bg-white shadow-lg transition-colors dark:bg-gray-800">
         <div className="flex h-full flex-col">
-          <div className="border-b p-4">
-            <h2 className="text-xl font-semibold text-gray-800">Menu</h2>
+          <div className="border-b border-gray-200 p-4 dark:border-gray-700">
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              Menu
+            </h2>
           </div>
 
           <nav className="flex-1 overflow-y-auto p-4">
@@ -58,7 +60,7 @@ const SideMenu = ({ isOpen, onClose }) => {
                     <div>
                       <button
                         onClick={() => setIsQualityOpen(!isQualityOpen)}
-                        className="flex w-full items-center justify-between rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        className="flex w-full items-center justify-between rounded-lg px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                       >
                         <span>{item.title}</span>
                         {item.icon}
@@ -69,7 +71,7 @@ const SideMenu = ({ isOpen, onClose }) => {
                             <li key={subIndex}>
                               <Link
                                 to={subItem.path}
-                                className="block rounded-lg px-4 py-2 text-gray-600 hover:bg-gray-100"
+                                className="block rounded-lg px-4 py-2 text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
                                 onClick={onClose}
                               >
                                 {subItem.title}
@@ -82,7 +84,7 @@ const SideMenu = ({ isOpen, onClose }) => {
                   ) : (
                     <Link
                       to={item.path}
-                      className="flex items-center justify-between rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="flex items-center justify-between rounded-lg px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                       onClick={onClose}
                     >
                       <span>{item.title}</span>
