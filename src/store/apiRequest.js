@@ -20,6 +20,11 @@ import {
   deleteUserFailed,
 } from "./userSlice";
 import { API_ENDPOINTS, AUTH_MESSAGES, ROUTES } from "../constants";
+import API_CONFIG from "../config/api.js";
+
+const api = axios.create({
+  baseURL: API_CONFIG.baseURL,
+});
 
 const handleError = (error, defaultMessage) => {
   console.error("API Error:", error);
@@ -42,7 +47,7 @@ const handleError = (error, defaultMessage) => {
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post(API_ENDPOINTS.LOGIN, user);
+    const res = await api.post(API_ENDPOINTS.LOGIN, user);
     dispatch(loginSuccess(res.data));
     toast.success(AUTH_MESSAGES.LOGIN_SUCCESS);
     if (res.data.admin) {
@@ -59,10 +64,9 @@ export const loginUser = async (user, dispatch, navigate) => {
 export const registerUser = async (user, dispatch, navigate) => {
   dispatch(registerStart());
   try {
-    await axios.post(API_ENDPOINTS.REGISTER, user);
+    await api.post(API_ENDPOINTS.REGISTER, user);
     dispatch(registerSuccess());
     toast.success(AUTH_MESSAGES.REGISTER_SUCCESS);
-
     navigate(ROUTES.LOGIN);
   } catch (err) {
     dispatch(registerFailed());

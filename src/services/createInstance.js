@@ -3,11 +3,12 @@ import { jwtDecode } from "jwt-decode";
 import { loginSuccess, logoutSuccess } from "../store/authSlice";
 import { API_ENDPOINTS, AUTH_MESSAGES } from "../constants";
 import { toast } from "react-toastify";
+import API_CONFIG from "../config/api.js";
 
 const refreshToken = async () => {
   try {
     const res = await axios.post(
-      API_ENDPOINTS.REFRESH_TOKEN,
+      `${API_CONFIG.baseURL}${API_ENDPOINTS.REFRESH_TOKEN}`,
       {},
       {
         withCredentials: true,
@@ -22,7 +23,10 @@ const refreshToken = async () => {
 };
 
 export const createAxios = (user, dispatch, onLogout) => {
-  const newInstance = axios.create();
+  const newInstance = axios.create({
+    baseURL: API_CONFIG.baseURL,
+  });
+
   newInstance.interceptors.request.use(
     async (config) => {
       if (!user?.accessToken) {
