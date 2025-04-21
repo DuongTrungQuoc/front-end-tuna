@@ -3,13 +3,11 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo-herov2.svg";
+import SideMenu from "../SideMenu/SideMenu";
 
 const Header = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenu = () => {
-    setOpenMenu(!openMenu);
-  };
   return (
     <>
       <header className="flex h-20 items-center bg-ocean-700 px-4 py-8 text-white">
@@ -27,11 +25,14 @@ const Header = () => {
           <HiOutlineMenu
             size={"24px"}
             className="cursor-pointer"
-            onClick={handleMenu}
+            onClick={() => setIsMenuOpen(true)}
           />
         </ul>
       </header>
+
+      <SideMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );
 };
+
 export default Header;
