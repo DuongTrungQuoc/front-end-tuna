@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex h-20 items-center bg-ocean-700 px-4 py-8 text-white dark:bg-gray-900">
+      <header className="flex h-20 items-center bg-ocean-700 px-4 py-8 text-white dark:bg-gray-950">
         <div className="flex items-center">
           <Link to="/">
             <img

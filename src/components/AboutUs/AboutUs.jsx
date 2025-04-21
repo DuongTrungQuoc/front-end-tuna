@@ -9,7 +9,7 @@ const AboutUs = () => {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <section className="container mx-auto py-16">
+      <section className="container mx-auto pt-16">
         {/* Header Section */}
         <div className="mb-16 text-center">
           <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
@@ -25,7 +25,6 @@ const AboutUs = () => {
         <div className="grid min-h-[600px] grid-cols-1 gap-0 lg:grid-cols-2">
           {/* Image Section */}
           <div className="relative h-full bg-ocean-50 dark:bg-gray-800">
-            <div className="absolute inset-0 z-10 bg-black/30"></div>
             <img
               src={aboutImage}
               alt="Đội ngũ BIGTUNA"
@@ -50,7 +49,7 @@ const AboutUs = () => {
                 Đội Ngũ Chuyên Gia
               </h3>
               <ul className="space-y-4">
-                <li className="flex items-center gap-3 rounded-lg bg-gray-50 p-3 transition-all hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600">
+                <li className="flex items-center gap-3 rounded-lg bg-gray-50 p-3 transition-all hover:cursor-pointer hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600">
                   <FaUser className="h-5 w-5 text-ocean-600 dark:text-ocean-400" />
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">
@@ -61,7 +60,7 @@ const AboutUs = () => {
                     </p>
                   </div>
                 </li>
-                <li className="flex items-center gap-3 rounded-lg bg-gray-50 p-3 transition-all hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600">
+                <li className="flex items-center gap-3 rounded-lg bg-gray-50 p-3 transition-all hover:cursor-pointer hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600">
                   <FaUser className="h-5 w-5 text-ocean-600 dark:text-ocean-400" />
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">
@@ -72,7 +71,7 @@ const AboutUs = () => {
                     </p>
                   </div>
                 </li>
-                <li className="flex items-center gap-3 rounded-lg bg-gray-50 p-3 transition-all hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600">
+                <li className="flex items-center gap-3 rounded-lg bg-gray-50 p-3 transition-all hover:cursor-pointer hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600">
                   <FaUser className="h-5 w-5 text-ocean-600 dark:text-ocean-400" />
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">
