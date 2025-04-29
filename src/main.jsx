@@ -38,7 +38,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               pauseOnFocusLoss={false}
               draggable
               pauseOnHover
-              theme="auto"
+              theme="light"
             />
           </ThemeProvider>
         </PersistGate>

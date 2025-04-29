@@ -22,6 +22,7 @@
         <path d="M0,350 C200,250 400,450 800,350 L800,600 L0,600" fill="#BFDBFE" opacity="0.7"/>
         
         <!-- 4 -->
+        <!-- Điểm (200,100) nằm: Cách mép trái 200 pixels (theo trục X) Cách mép trên 100 pixels (theo trục Y)-->
         <path d="M200,100 L200,300 L100,300 L300,100 L300,400" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
         
         <!-- 0 -->
