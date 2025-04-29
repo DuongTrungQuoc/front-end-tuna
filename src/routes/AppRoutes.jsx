@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazyLoad } from "../utils/lazyLoad.jsx";
+import ProtectedAuth from "../components/ProtectedAuth.jsx";
 
 // Lazy load all pages
 const DefaultPage = lazyLoad(() => import("../pages/DefaultPage.jsx"));
@@ -31,11 +32,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <ProtectedAuth>
+            <Login />
+          </ProtectedAuth>
+        ),
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <ProtectedAuth>
+            <Register />
+          </ProtectedAuth>
+        ),
       },
       {
         path: "/user",
