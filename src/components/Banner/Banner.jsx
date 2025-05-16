@@ -34,10 +34,7 @@ const Banner = () => {
           <p className="md:text-18 text-center text-14 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] sm:text-16 lg:text-26">
             Mang đến những miếng cá đạt chất lượng tốt nhất
           </p>
-          <Link
-            to={user ? "/user" : "/guest"}
-            aria-label={user ? "Đến trang người dùng" : "Đến trang khách"}
-          >
+          <Link to={"/user"} aria-label={"Đến trang người dùng"}>
             <button
               className="mt-2 bg-orange-400 px-4 py-2 text-14 uppercase transition-all duration-300 hover:bg-primary-blue dark:bg-orange-500 dark:hover:bg-primary-blue/80 sm:text-16 md:px-6 md:py-3 md:text-20"
               aria-label="Thử ngay"
