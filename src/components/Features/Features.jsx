@@ -16,7 +16,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3">
           {/* RGB */}
           <div className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800">
             <div className="absolute inset-0 bg-gradient-to-br from-ocean-50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:from-gray-700" />
