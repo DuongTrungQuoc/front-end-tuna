@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazyLoad } from "../utils/lazyLoad.jsx";
-import ProtectedAuth from "../components/ProtectedAuth.jsx";
+import ProtectedAuth from "../components/Auth/ProtectedAuth.jsx";
+import ProtectedRoute from "../components/Auth/ProtectedRoute.jsx";
 
 // Lazy load all pages
 const DefaultPage = lazyLoad(() => import("../pages/DefaultPage.jsx"));
@@ -8,12 +9,19 @@ const HomePage = lazyLoad(() => import("../pages/HomePage.jsx"));
 const Login = lazyLoad(() => import("../pages/Login.jsx"));
 const Register = lazyLoad(() => import("../pages/Register.jsx"));
 const User = lazyLoad(() => import("../pages/User.jsx"));
-const AdminHomePage = lazyLoad(() => import("../pages/AdminHomePage.jsx"));
+const AdminLayout = lazyLoad(
+  () => import("../components/Admin/AdminLayout.jsx"),
+);
+const Dashboard = lazyLoad(() => import("../pages/Admin/Dashboard.jsx"));
+const UserManagement = lazyLoad(
+  () => import("../pages/Admin/UserManagement.jsx"),
+);
 const ChatAI = lazyLoad(() => import("../pages/ChatAI.jsx"));
 const ChatDetail = lazyLoad(() => import("../pages/ChatDetail.jsx"));
 const GuestUser = lazyLoad(() => import("../pages/GuestUser.jsx"));
 const RGBPredict = lazyLoad(() => import("../pages/RGBPredict.jsx"));
 const LabPredict = lazyLoad(() => import("../pages/LabPredict.jsx"));
+const ImgPredict = lazyLoad(() => import("../pages/LabPredict.jsx"));
 const NotFound = lazyLoad(() => import("../pages/NotFound.jsx"));
 
 const router = createBrowserRouter([
@@ -55,16 +63,51 @@ const router = createBrowserRouter([
         element: <GuestUser />,
       },
       {
-        path: "/admin",
-        element: <AdminHomePage />,
-      },
-      {
         path: "/rgb-predict",
         element: <RGBPredict />,
       },
       {
         path: "/lab-predict",
         element: <LabPredict />,
+      },
+      {
+        path: "/img-predict",
+        element: <ImgPredict />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: (
+      <ProtectedRoute>
+        <AdminLayout />
+      </ProtectedRoute>
+    ),
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "/admin",
+        element: <Dashboard />,
+      },
+      {
+        path: "/admin/users",
+        element: <UserManagement />,
+      },
+      {
+        path: "/admin/predictions",
+        element: <div>Predictions Management</div>,
+      },
+      {
+        path: "/admin/reports",
+        element: <div>Reports</div>,
+      },
+      {
+        path: "/admin/customer-service",
+        element: <div>Customer Service</div>,
+      },
+      {
+        path: "/admin/settings",
+        element: <div>Settings</div>,
       },
     ],
   },

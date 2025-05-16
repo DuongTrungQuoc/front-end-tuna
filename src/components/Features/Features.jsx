@@ -104,10 +104,10 @@ const Features = () => {
                 thì thông qua công nghệ xử lý ảnh tiên tiến.
               </p>
               <Link
-                to="/login"
+                to="/img-predict"
                 className="inline-flex items-center font-semibold text-ocean-600 transition-colors hover:text-ocean-700 dark:text-ocean-400 dark:hover:text-ocean-300"
               >
-                Đăng nhập để sử dụng
+                Thử ngay
                 <svg
                   className="ml-2 h-5 w-5 transform transition-transform group-hover:translate-x-2"
                   fill="none"

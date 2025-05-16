@@ -4,7 +4,7 @@ import aboutImage from "../../assets/about.jpg";
 
 const AboutUs = () => {
   useEffect(() => {
-    document.title = "Về chúng tôi - BIGTUNA";
+    document.title = "BIGTUNA";
   }, []);
 
   return (

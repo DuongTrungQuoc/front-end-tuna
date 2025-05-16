@@ -7,7 +7,10 @@ export const predictRGB = async (rgbValues) => {
     mode: "rgb",
   };
 
-  const response = await axios.post("/v1/predict", requestData);
+  const response = await axios.post(
+    "https://back-end-tuna.onrender.com/v1/predict",
+    requestData,
+  );
   return response.data;
 };
 
@@ -17,6 +20,9 @@ export const predictLab = async (labValues) => {
     mode: "lab",
   };
 
-  const response = await axios.post("/v1/predict", requestData);
+  const response = await axios.post(
+    "https://back-end-tuna.onrender.com/v1/predict",
+    requestData,
+  );
   return response.data;
 };
