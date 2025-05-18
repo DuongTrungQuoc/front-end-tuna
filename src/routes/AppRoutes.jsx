@@ -22,6 +22,9 @@ const GuestUser = lazyLoad(() => import("../pages/GuestUser.jsx"));
 const RGBPredict = lazyLoad(() => import("../pages/RGBPredict.jsx"));
 const LabPredict = lazyLoad(() => import("../pages/LabPredict.jsx"));
 const ImgPredict = lazyLoad(() => import("../pages/ImagePrediction.jsx"));
+const About = lazyLoad(() => import("../pages/About.jsx"));
+const Activities = lazyLoad(() => import("../pages/Activities.jsx"));
+const Contact = lazyLoad(() => import("../pages/Contact.jsx"));
 const NotFound = lazyLoad(() => import("../pages/NotFound.jsx"));
 
 const router = createBrowserRouter([
@@ -73,6 +76,18 @@ const router = createBrowserRouter([
       {
         path: "/img-predict",
         element: <ImgPredict />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/activities",
+        element: <Activities />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

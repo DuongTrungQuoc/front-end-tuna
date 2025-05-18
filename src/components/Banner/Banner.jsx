@@ -7,7 +7,7 @@ const Banner = () => {
 
   return (
     <section
-      className="relative h-full text-20 font-semibold dark:bg-gray-900"
+      className="relative z-0 h-full text-20 font-semibold dark:bg-gray-900"
       role="banner"
       aria-label="Banner chính"
     >

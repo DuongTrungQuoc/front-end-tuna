@@ -19,9 +19,9 @@ const SideMenu = ({ isOpen, onClose }) => {
         <HiChevronRight className="h-5 w-5" />
       ),
       subItems: [
-        { title: "RGB", path: "/predict/rgb" },
-        { title: "L*a*b*", path: "/predict/lab" },
-        { title: "Hình ảnh", path: "/predict/image" },
+        { title: "RGB", path: "/rgb-predict" },
+        { title: "L*a*b*", path: "/lab-predict" },
+        { title: "Hình ảnh", path: "/img-predict" },
       ],
     },
     {
@@ -32,6 +32,11 @@ const SideMenu = ({ isOpen, onClose }) => {
     {
       title: "Liên hệ",
       path: "/contact",
+      icon: <HiChevronRight className="h-5 w-5" />,
+    },
+    {
+      title: "Chat với AI",
+      path: "/chat",
       icon: <HiChevronRight className="h-5 w-5" />,
     },
   ];

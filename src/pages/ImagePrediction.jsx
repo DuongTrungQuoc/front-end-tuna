@@ -77,7 +77,7 @@ const ImagePrediction = () => {
                 <img
                   src={preview}
                   alt="Preview"
-                  className="h-auto max-w-full rounded-lg"
+                  className="h-auto max-w-full"
                 />
               </div>
             )}

@@ -25,25 +25,25 @@ const SideBar = ({ onToggle }) => {
   };
 
   return (
-    <div className="bg-primaryBg-sideBar w-[280px] h-screen text-white p-8 ">
-      <button className="flex ml-auto xl:hidden" onClick={onToggle}>
-        <FontAwesomeIcon icon={faBars} className="w-6 h-6" />
+    <div className="h-screen w-[280px] bg-ocean-900 p-8 text-white md:h-[80vh]">
+      <button className="ml-auto flex xl:hidden" onClick={onToggle}>
+        <FontAwesomeIcon icon={faBars} className="h-6 w-6" />
       </button>
-      <div className="mt-16">
+      <div className="mt-6">
         <button
-          className="flex items-center px-4 py-2 space-x-4 bg-gray-600 mb-10"
+          className="mb-10 flex items-center space-x-4 bg-ocean-600 px-4 py-2"
           onClick={handleNewChat}
         >
-          <FontAwesomeIcon icon={faPlus} className="w-4 h-4" />
+          <FontAwesomeIcon icon={faPlus} className="h-4 w-4" />
           <p>Cuộc trò truyện mới</p>
         </button>
-        <div className="space-y-4 overflow-y-auto max-h-[70vh]">
+        <div className="max-h-[70vh] space-y-4 overflow-y-auto">
           <p>Gần đây</p>
           <div className="flex flex-col space-y-6">
             {data.map((chat) => (
               <Link
                 to={`/chat/${chat.id}`}
-                className="flex items-center justify-between p-4 bg-gray-800"
+                className="flex items-center justify-between bg-ocean-600 p-4"
                 key={chat?.id}
               >
                 <div className="flex items-center space-x-4">
