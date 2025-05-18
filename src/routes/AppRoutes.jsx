@@ -21,7 +21,7 @@ const ChatDetail = lazyLoad(() => import("../pages/ChatDetail.jsx"));
 const GuestUser = lazyLoad(() => import("../pages/GuestUser.jsx"));
 const RGBPredict = lazyLoad(() => import("../pages/RGBPredict.jsx"));
 const LabPredict = lazyLoad(() => import("../pages/LabPredict.jsx"));
-const ImgPredict = lazyLoad(() => import("../pages/LabPredict.jsx"));
+const ImgPredict = lazyLoad(() => import("../pages/ImagePrediction.jsx"));
 const NotFound = lazyLoad(() => import("../pages/NotFound.jsx"));
 
 const router = createBrowserRouter([
