@@ -26,3 +26,19 @@ export const predictLab = async (labValues) => {
   );
   return response.data;
 };
+
+export const predictImage = async (imageFile) => {
+  const formData = new FormData();
+  formData.append("image", imageFile);
+
+  const response = await axios.post(
+    "https://back-end-tuna.onrender.com/v1/predict/image", // Correct endpoint
+    formData,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    },
+  );
+  return response.data;
+};

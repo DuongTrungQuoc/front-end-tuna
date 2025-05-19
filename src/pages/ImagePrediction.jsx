@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { predictImage } from "../services/api";
 import BackButton from "../components/BackButton/BackButton";
 
 const ImagePrediction = () => {
@@ -32,17 +32,9 @@ const ImagePrediction = () => {
     formData.append("image", selectedFile);
 
     try {
-      const response = await axios.post(
-        "https://back-end-tuna.onrender.com/v1/predict/image",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
-      );
+      const response = await predictImage(selectedFile);
 
-      setResults(response.data.data);
+      setResults(response.data);
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred");
     } finally {
@@ -104,20 +96,41 @@ const ImagePrediction = () => {
           {results && (
             <div className="mt-6">
               <h3 className="mb-2 text-lg font-semibold">Kết quả dự đoán</h3>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">MetMb</h4>
-                  <p className="text-xl font-bold">{results.MetMb}</p>
-                </div>
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">TBARS</h4>
-                  <p className="text-xl font-bold">{results.TBARS}</p>
+                  <h4 className="text-sm font-medium text-gray-500">HPO</h4>
+                  <p className="text-xl font-bold">{results.HPO.toFixed(2)}</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4">
                   <h4 className="text-sm font-medium text-gray-500">
-                    Peroxide
+                    Lab (L*, a*, b*)
                   </h4>
-                  <p className="text-xl font-bold">{results.Peroxide}</p>
+                  <p className="text-xl font-bold">
+                    L*: {results.Lab["L*"].toFixed(2)}, a*:{" "}
+                    {results.Lab["a*"].toFixed(2)}, b*:{" "}
+                    {results.Lab["b*"].toFixed(2)}
+                  </p>
+                </div>
+                <div className="rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-sm font-medium text-gray-500">MetMb</h4>
+                  <p className="text-xl font-bold">
+                    {results.MetMb.toFixed(2)}
+                  </p>
+                </div>
+                <div className="rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-sm font-medium text-gray-500">
+                    RGB (R, G, B)
+                  </h4>
+                  <p className="text-xl font-bold">
+                    R: {results.RGB.R.toFixed(2)}, G: {results.RGB.G.toFixed(2)}
+                    , B: {results.RGB.B.toFixed(2)}
+                  </p>
+                </div>
+                <div className="rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-sm font-medium text-gray-500">TBARS</h4>
+                  <p className="text-xl font-bold">
+                    {results.TBARS.toFixed(2)}
+                  </p>
                 </div>
               </div>
             </div>
