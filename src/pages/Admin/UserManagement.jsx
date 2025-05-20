@@ -5,6 +5,8 @@ import {
   getAllUsers,
   deleteUser,
   resetUserPassword,
+  createUser,
+  updateUser,
 } from "../../store/apiRequest";
 import { loginSuccess } from "../../store/authSlice";
 import {
@@ -13,6 +15,9 @@ import {
   RiEdit2Line,
   RiDeleteBinLine,
   RiLockPasswordLine,
+  RiCloseLine,
+  RiEyeLine,
+  RiEyeOffLine,
 } from "react-icons/ri";
 
 const UserManagement = () => {
@@ -20,6 +25,16 @@ const UserManagement = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(10);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    admin: false,
+  });
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.auth.login?.currentUser);
@@ -58,6 +73,66 @@ const UserManagement = () => {
       } catch (error) {
         console.error("Reset password error:", error);
       }
+    }
+  };
+
+  const handleOpenModal = (mode, user = null) => {
+    setIsEditMode(mode === "edit");
+    setSelectedUser(user);
+    if (mode === "edit" && user) {
+      setFormData({
+        username: user.username,
+        email: user.email,
+        password: "",
+        admin: user.admin,
+      });
+    } else {
+      setFormData({
+        username: "",
+        email: "",
+        password: "",
+        admin: false,
+      });
+    }
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedUser(null);
+    setFormData({
+      username: "",
+      email: "",
+      password: "",
+      admin: false,
+    });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (isEditMode) {
+        await updateUser(
+          currentUser.accessToken,
+          dispatch,
+          selectedUser._id,
+          formData,
+          axiosJWT,
+        );
+      } else {
+        await createUser(currentUser.accessToken, dispatch, formData, axiosJWT);
+      }
+      handleCloseModal();
+    } catch (error) {
+      console.error("Form submission error:", error);
     }
   };
 
@@ -114,7 +189,10 @@ const UserManagement = () => {
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">
           User Management
         </h1>
-        <button className="rounded-lg bg-ocean-600 px-4 py-2 text-white hover:bg-ocean-700">
+        <button
+          onClick={() => handleOpenModal("create")}
+          className="rounded-lg bg-ocean-600 px-4 py-2 text-white hover:bg-ocean-700"
+        >
           Add New User
         </button>
       </div>
@@ -222,6 +300,7 @@ const UserManagement = () => {
                 <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
                   <button
                     className="mr-3 text-ocean-600 hover:text-ocean-900 dark:hover:text-ocean-400"
+                    onClick={() => handleOpenModal("edit", user)}
                     title="Edit user"
                   >
                     <RiEdit2Line className="h-5 w-5" />
@@ -246,6 +325,106 @@ const UserManagement = () => {
           </tbody>
         </table>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="w-full max-w-md rounded-lg bg-white p-6 dark:bg-gray-800">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                {isEditMode ? "Edit User" : "Add New User"}
+              </h2>
+              <button
+                onClick={handleCloseModal}
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              >
+                <RiCloseLine className="h-6 w-6" />
+              </button>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleInputChange}
+                  required
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-ocean-500 focus:outline-none focus:ring-1 focus:ring-ocean-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-ocean-500 focus:outline-none focus:ring-1 focus:ring-ocean-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Password {isEditMode && "(leave blank to keep current)"}
+                </label>
+                <div className="relative mt-1">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    required={!isEditMode}
+                    className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-ocean-500 focus:outline-none focus:ring-1 focus:ring-ocean-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                  >
+                    {showPassword ? (
+                      <RiEyeOffLine className="h-5 w-5" />
+                    ) : (
+                      <RiEyeLine className="h-5 w-5" />
+                    )}
+                  </button>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  name="admin"
+                  checked={formData.admin}
+                  onChange={handleInputChange}
+                  className="h-4 w-4 rounded border-gray-300 text-ocean-600 focus:ring-ocean-500 dark:border-gray-600"
+                />
+                <label className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+                  Người này có quyền admin không ?
+                </label>
+              </div>
+              <div className="flex justify-end space-x-3">
+                <button
+                  type="button"
+                  onClick={handleCloseModal}
+                  className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="rounded-md bg-ocean-600 px-4 py-2 text-sm font-medium text-white hover:bg-ocean-700"
+                >
+                  {isEditMode ? "Update" : "Create"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Pagination */}
       <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 dark:border-gray-700 dark:bg-gray-800 sm:px-6">

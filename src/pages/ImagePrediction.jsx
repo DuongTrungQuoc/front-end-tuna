@@ -102,21 +102,31 @@ const ImagePrediction = () => {
                   <p className="text-xl font-bold">{results.HPO.toFixed(2)}</p>
                 </div>
                 <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">
-                    Lab (L*, a*, b*)
-                  </h4>
-                  <p className="text-xl font-bold">
-                    L*: {results.Lab["L*"].toFixed(2)}, a*:{" "}
-                    {results.Lab["a*"].toFixed(2)}, b*:{" "}
-                    {results.Lab["b*"].toFixed(2)}
-                  </p>
-                </div>
-                <div className="rounded-lg bg-gray-50 p-4">
                   <h4 className="text-sm font-medium text-gray-500">MetMb</h4>
                   <p className="text-xl font-bold">
                     {results.MetMb.toFixed(2)}
                   </p>
                 </div>
+                <div className="rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-sm font-medium text-gray-500">TBARS</h4>
+                  <p className="text-xl font-bold">
+                    {results.TBARS.toFixed(2)}
+                  </p>
+                </div>
+                <div className="rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-sm font-medium text-gray-500">L*a*b*</h4>
+                  <p className="text-xl font-bold">
+                    L*: {results.Lab["L*"].toFixed(2)}
+                  </p>
+                  <p className="text-xl font-bold">
+                    a*: {results.Lab["a*"].toFixed(2)}
+                  </p>
+                  <p className="text-xl font-bold">
+                    {" "}
+                    b*: {results.Lab["b*"].toFixed(2)}
+                  </p>
+                </div>
+
                 <div className="rounded-lg bg-gray-50 p-4">
                   <h4 className="text-sm font-medium text-gray-500">
                     RGB (R, G, B)
@@ -124,12 +134,6 @@ const ImagePrediction = () => {
                   <p className="text-xl font-bold">
                     R: {results.RGB.R.toFixed(2)}, G: {results.RGB.G.toFixed(2)}
                     , B: {results.RGB.B.toFixed(2)}
-                  </p>
-                </div>
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">TBARS</h4>
-                  <p className="text-xl font-bold">
-                    {results.TBARS.toFixed(2)}
                   </p>
                 </div>
               </div>

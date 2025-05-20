@@ -139,3 +139,43 @@ export const resetUserPassword = async (accessToken, userId, axiosJWT) => {
     throw err;
   }
 };
+
+export const createUser = async (accessToken, dispatch, userData, axiosJWT) => {
+  try {
+    const res = await axiosJWT.post(API_ENDPOINTS.USERS, userData, {
+      headers: { token: `Bearer ${accessToken}` },
+    });
+    toast.success("Tạo người dùng thành công");
+    // Refresh danh sách người dùng
+    getAllUsers(accessToken, dispatch, axiosJWT);
+    return res.data;
+  } catch (err) {
+    handleError(err, "Không thể tạo người dùng mới");
+    throw err;
+  }
+};
+
+export const updateUser = async (
+  accessToken,
+  dispatch,
+  userId,
+  userData,
+  axiosJWT,
+) => {
+  try {
+    const res = await axiosJWT.put(
+      `${API_ENDPOINTS.USERS}/${userId}`,
+      userData,
+      {
+        headers: { token: `Bearer ${accessToken}` },
+      },
+    );
+    toast.success("Cập nhật người dùng thành công");
+    // Refresh danh sách người dùng
+    getAllUsers(accessToken, dispatch, axiosJWT);
+    return res.data;
+  } catch (err) {
+    handleError(err, "Không thể cập nhật người dùng");
+    throw err;
+  }
+};
