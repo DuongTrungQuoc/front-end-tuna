@@ -187,13 +187,13 @@ const UserManagement = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">
-          User Management
+          Quản lý người dùng
         </h1>
         <button
           onClick={() => handleOpenModal("create")}
           className="rounded-lg bg-ocean-600 px-4 py-2 text-white hover:bg-ocean-700"
         >
-          Add New User
+          Thêm người dùng mới
         </button>
       </div>
 
@@ -203,7 +203,7 @@ const UserManagement = () => {
           <RiSearchLine className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            placeholder="Search users..."
+            placeholder="Tìm kiếm người dùng..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 focus:border-ocean-500 focus:outline-none focus:ring-1 focus:ring-ocean-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
@@ -211,7 +211,7 @@ const UserManagement = () => {
         </div>
         <button className="flex items-center space-x-2 rounded-lg border border-gray-300 px-4 py-2 dark:border-gray-600 dark:text-white">
           <RiFilterLine className="h-5 w-5" />
-          <span>Filter</span>
+          <span>Lọc</span>
         </button>
       </div>
 
@@ -246,13 +246,13 @@ const UserManagement = () => {
                 className="cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
                 onClick={() => handleSort("admin")}
               >
-                Role
+                Vai trò
               </th>
               <th
                 scope="col"
-                className="cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
+                className="cursor-pointer px-6 py-3 text-center text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
               >
-                Actions
+                Thao tác
               </th>
             </tr>
           </thead>
@@ -275,7 +275,7 @@ const UserManagement = () => {
                       />
                     </div>
                     <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900 dark:text-white">
+                      <div className="text-center text-sm font-medium text-gray-900 dark:text-white">
                         {user.username}
                       </div>
                     </div>
@@ -297,7 +297,7 @@ const UserManagement = () => {
                     {user.admin ? "Admin" : "User"}
                   </span>
                 </td>
-                <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                <td className="whitespace-nowrap px-6 py-4 text-center text-sm font-medium">
                   <button
                     className="mr-3 text-ocean-600 hover:text-ocean-900 dark:hover:text-ocean-400"
                     onClick={() => handleOpenModal("edit", user)}
@@ -332,7 +332,9 @@ const UserManagement = () => {
           <div className="w-full max-w-md rounded-lg bg-white p-6 dark:bg-gray-800">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                {isEditMode ? "Edit User" : "Add New User"}
+                {isEditMode
+                  ? "Chỉnh sửa người dùng này"
+                  : "Thêm người dùng mới"}
               </h2>
               <button
                 onClick={handleCloseModal}
@@ -370,7 +372,7 @@ const UserManagement = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Password {isEditMode && "(leave blank to keep current)"}
+                  Password {isEditMode && "(để trống để giữ nguyên mật khẩu)"}
                 </label>
                 <div className="relative mt-1">
                   <input
@@ -395,16 +397,16 @@ const UserManagement = () => {
                 </div>
               </div>
               <div className="flex items-center">
+                <label className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+                  Người này có quyền admin không ?
+                </label>
                 <input
                   type="checkbox"
                   name="admin"
                   checked={formData.admin}
                   onChange={handleInputChange}
-                  className="h-4 w-4 rounded border-gray-300 text-ocean-600 focus:ring-ocean-500 dark:border-gray-600"
+                  className="ml-2 h-4 w-4 rounded border-gray-300 text-ocean-600 focus:ring-ocean-500 dark:border-gray-600"
                 />
-                <label className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
-                  Người này có quyền admin không ?
-                </label>
               </div>
               <div className="flex justify-end space-x-3">
                 <button
@@ -412,13 +414,13 @@ const UserManagement = () => {
                   onClick={handleCloseModal}
                   className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                 >
-                  Cancel
+                  Hủy
                 </button>
                 <button
                   type="submit"
                   className="rounded-md bg-ocean-600 px-4 py-2 text-sm font-medium text-white hover:bg-ocean-700"
                 >
-                  {isEditMode ? "Update" : "Create"}
+                  {isEditMode ? "Cập nhật" : "Thêm mới"}
                 </button>
               </div>
             </form>
@@ -447,13 +449,14 @@ const UserManagement = () => {
         <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
           <div>
             <p className="text-sm text-gray-700 dark:text-gray-300">
-              Showing{" "}
-              <span className="font-medium">{indexOfFirstUser + 1}</span> to{" "}
+              Hiện từ{" "}
+              <span className="font-medium">{indexOfFirstUser + 1}</span> tới{" "}
               <span className="font-medium">
                 {Math.min(indexOfLastUser, sortedUsers.length)}
               </span>{" "}
-              of <span className="font-medium">{sortedUsers.length}</span>{" "}
-              results
+              trên tổng{" "}
+              <span className="font-medium">{sortedUsers.length}</span> người
+              dùng
             </p>
           </div>
           <div>

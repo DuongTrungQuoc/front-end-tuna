@@ -26,6 +26,9 @@ const About = lazyLoad(() => import("../pages/About.jsx"));
 const Activities = lazyLoad(() => import("../pages/Activities.jsx"));
 const Contact = lazyLoad(() => import("../pages/Contact.jsx"));
 const NotFound = lazyLoad(() => import("../pages/NotFound.jsx"));
+const TermsAndConditions = lazyLoad(
+  () => import("../pages/TermsAndConditions.jsx"),
+);
 
 const router = createBrowserRouter([
   {
@@ -56,6 +59,10 @@ const router = createBrowserRouter([
             <Register />
           </ProtectedAuth>
         ),
+      },
+      {
+        path: "/terms",
+        element: <TermsAndConditions />,
       },
       {
         path: "/user",

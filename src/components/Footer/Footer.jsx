@@ -32,11 +32,11 @@ const Footer = () => {
           </div>
           <p>
             <span className="text-16 hover:text-ocean-200 dark:hover:text-gray-300 md:text-20">
-              Terms of service
+              Điều khoản dịch vụ
             </span>
             <span> | </span>
             <span className="text-16 hover:text-ocean-200 dark:hover:text-gray-300 md:text-20">
-              Privacy policy
+              Chính sách bảo mật
             </span>
           </p>
         </div>

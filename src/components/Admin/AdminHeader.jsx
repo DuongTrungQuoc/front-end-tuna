@@ -111,7 +111,7 @@ const AdminHeader = ({ onMenuClick, isSidebarOpen }) => {
               onClick={handleLogout}
               className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
             >
-              Sign out
+              Đăng xuất
             </button>
           </div>
         </div>

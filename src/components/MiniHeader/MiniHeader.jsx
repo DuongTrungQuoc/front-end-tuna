@@ -61,11 +61,11 @@ const MiniHeader = () => {
           ) : (
             <>
               <Link to={ROUTES.LOGIN} className="hover:font-bold">
-                login
+                đăng nhập
               </Link>
               <p> | </p>
               <Link to={ROUTES.REGISTER} className="hover:font-bold">
-                register
+                đăng ký
               </Link>
             </>
           )}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { predictImage } from "../services/api";
 import BackButton from "../components/BackButton/BackButton";
+import { toast } from "react-toastify";
 
 const ImagePrediction = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -23,7 +24,10 @@ const ImagePrediction = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!selectedFile) return;
+    if (!selectedFile) {
+      toast.error("Vui lòng chọn hình ảnh");
+      return;
+    }
 
     setLoading(true);
     setError(null);
@@ -33,10 +37,14 @@ const ImagePrediction = () => {
 
     try {
       const response = await predictImage(selectedFile);
-
       setResults(response.data);
+      toast.success("Dự đoán thành công!");
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred");
+      toast.error(
+        err.response?.data?.message ||
+          "Có lỗi xảy ra khi dự đoán. Vui lòng thử lại!",
+      );
     } finally {
       setLoading(false);
     }

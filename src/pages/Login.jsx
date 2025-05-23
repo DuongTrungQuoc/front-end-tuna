@@ -44,7 +44,7 @@ const Login = () => {
           <div className="w-full rounded-lg bg-white shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
             <div className="space-y-4 p-6 sm:p-8 md:space-y-6">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
-                Login to your account
+                Đăng nhập vào tài khoản của bạn
               </h1>
               <form
                 className="space-y-4 md:space-y-6"
@@ -56,7 +56,7 @@ const Login = () => {
                     htmlFor="username"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Username
+                    Tên tài khoản
                   </label>
                   <input
                     type="text"
@@ -75,7 +75,7 @@ const Login = () => {
                     htmlFor="password"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Password
+                    Mật khẩu
                   </label>
                   <div className="relative">
                     <input
@@ -114,20 +114,20 @@ const Login = () => {
                         disabled={isLoading}
                       />
                     </div>
-                    <div className="ml-3 text-sm">
+                    <div className="ml-2 text-sm">
                       <label
                         htmlFor="remember"
                         className="text-gray-500 dark:text-gray-300"
                       >
-                        Remember me
+                        Nhớ mật khẩu
                       </label>
                     </div>
                   </div>
                   <a
                     href="#"
-                    className="dark:text-primary-500 text-sm font-medium text-ocean-500 hover:underline"
+                    className="dark:text-primary-500 text-sm font-medium text-ocean-500 hover:text-ocean-200"
                   >
-                    Forgot password?
+                    Quên mật khẩu?
                   </a>
                 </div>
                 <button
@@ -137,15 +137,15 @@ const Login = () => {
                   }`}
                   disabled={isLoading}
                 >
-                  {isLoading ? "Đang đăng nhập..." : "Login"}
+                  {isLoading ? "Đang đăng nhập..." : "Đăng nhập"}
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don't have an account yet?{" "}
+                  Chưa có tài khoản?{" "}
                   <Link
                     to="/register"
-                    className="dark:text-primary-500 font-medium text-ocean-500 hover:underline"
+                    className="dark:text-primary-500 font-medium text-ocean-500 hover:text-ocean-200"
                   >
-                    Register here
+                    Đăng ký tại đây
                   </Link>
                 </p>
               </form>
