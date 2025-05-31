@@ -37,7 +37,7 @@ const ImagePrediction = () => {
 
     try {
       const response = await predictImage(selectedFile);
-      setResults(response.data);
+      setResults(response);
       toast.success("Dự đoán thành công!");
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred");
@@ -105,43 +105,35 @@ const ImagePrediction = () => {
             <div className="mt-6">
               <h3 className="mb-2 text-lg font-semibold">Kết quả dự đoán</h3>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">HPO</h4>
-                  <p className="text-xl font-bold">{results.HPO.toFixed(2)}</p>
+                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-xl font-bold">HPO:</h4>
+                  <p className="text-xl font-bold">{results.HPO}</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">MetMb</h4>
-                  <p className="text-xl font-bold">
-                    {results.MetMb.toFixed(2)}
-                  </p>
+                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-xl font-bold">MetMb:</h4>
+                  <p className="text-xl font-bold">{results.MetMb}</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">TBARS</h4>
-                  <p className="text-xl font-bold">
-                    {results.TBARS.toFixed(2)}
-                  </p>
+                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-xl font-bold">TBARS:</h4>
+                  <p className="text-xl font-bold">{results.TBARS}</p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">L*a*b*</h4>
-                  <p className="text-xl font-bold">
-                    L*: {results.Lab["L*"].toFixed(2)}
-                  </p>
-                  <p className="text-xl font-bold">
-                    a*: {results.Lab["a*"].toFixed(2)}
-                  </p>
-                  <p className="text-xl font-bold">
-                    {" "}
-                    b*: {results.Lab["b*"].toFixed(2)}
-                  </p>
+                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-xl font-bold text-ocean-500">L*a*b*</h4>
+                  <p className="text-xl font-bold">L*: {results.LAB[0]}</p>
+                  <p className="text-xl font-bold">a*: {results.LAB[1]}</p>
+                  <p className="text-xl font-bold">b*: {results.LAB[2]}</p>
                 </div>
-
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-sm font-medium text-gray-500">
-                    RGB (R, G, B)
-                  </h4>
+                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
+                  <h4 className="text-xl font-bold text-ocean-500">RGB</h4>
                   <p className="text-xl font-bold">
-                    R: {results.RGB.R.toFixed(2)}, G: {results.RGB.G.toFixed(2)}
-                    , B: {results.RGB.B.toFixed(2)}
+                    R: {results.RGB[0].toFixed(2)}
+                  </p>
+                  <p className="text-xl font-bold">
+                    G:
+                    {results.RGB[1].toFixed(2)}
+                  </p>
+                  <p className="text-xl font-bold">
+                    B: {results.RGB[2].toFixed(2)}
                   </p>
                 </div>
               </div>

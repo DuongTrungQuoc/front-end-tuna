@@ -32,7 +32,7 @@ export const predictImage = async (imageFile) => {
   formData.append("file", imageFile);
 
   const response = await axios.post(
-    "https://back-end-tuna.onrender.com/v1/predict/image", // Correct endpoint
+    "https://1efb-35-243-185-124.ngrok-free.app/predict", // https://back-end-tuna.onrender.com/v1/predict/image
     formData,
     {
       headers: {
