@@ -64,7 +64,7 @@ const AboutUs = () => {
                   <FaUser className="h-5 w-5 text-ocean-600 dark:text-ocean-400" />
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">
-                      Nguyễn Anh Thư
+                      Nguyễn Ngọc Anh Thư
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       AI Developer

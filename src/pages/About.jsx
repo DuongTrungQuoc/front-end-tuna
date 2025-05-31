@@ -1,3 +1,9 @@
+import dinh from "../assets/dinh.jpg";
+import quoc from "../assets/quoc.jpg";
+import thu from "../assets/thu.jpg";
+import thay from "../assets/thay.jpg";
+import nhom from "../assets/nhomnghiencuu.png";
+
 const About = () => {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -218,7 +224,12 @@ const About = () => {
                 Đội ngũ phát triển
               </h3>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                <div className="flex flex-col items-center rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                  <img
+                    src={quoc}
+                    alt="Dương Trung Quốc"
+                    className="mb-2 h-32 w-32 rounded-full border-2 border-ocean-500 object-cover"
+                  />
                   <h4 className="mb-2 text-lg font-medium text-gray-800 dark:text-white">
                     Dương Trung Quốc
                   </h4>
@@ -231,29 +242,40 @@ const About = () => {
                     React, Node.js và MongoDB.
                   </p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                <div className="flex flex-col items-center rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                  <img
+                    src={thu}
+                    alt="DNguyễn Ngọc Anh Thư"
+                    className="mb-2 h-32 w-32 rounded-full border-2 border-ocean-500 object-cover"
+                  />
                   <h4 className="mb-2 text-lg font-medium text-gray-800 dark:text-white">
-                    Nguyễn Văn A
+                    Nguyễn Ngọc Anh Thư
                   </h4>
                   <p className="mb-2 text-sm text-gray-600 dark:text-gray-300">
-                    Front-end Developer
+                    AI Developer
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Tập trung vào việc phát triển giao diện người dùng, đảm bảo
-                    trải nghiệm người dùng mượt mà và responsive trên mọi thiết
-                    bị.
+                    Tập trung vào phát triển các mô hình trí tuệ nhân tạo, xây
+                    dựng và tối ưu thuật toán dự đoán chất lượng cá ngừ dựa trên
+                    dữ liệu màu sắc.
                   </p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                <div className="flex flex-col items-center rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                  <img
+                    src={dinh}
+                    alt="Lê Nguyễn Đăng Định"
+                    className="mb-2 h-32 w-32 rounded-full border-2 border-ocean-500 object-cover"
+                  />
                   <h4 className="mb-2 text-lg font-medium text-gray-800 dark:text-white">
-                    Trần Thị B
+                    Lê Nguyễn Đăng Định
                   </h4>
                   <p className="mb-2 text-sm text-gray-600 dark:text-gray-300">
-                    Back-end Developer
+                    AI Developer
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Chuyên gia về xây dựng API, quản lý cơ sở dữ liệu và tối ưu
-                    hóa hiệu suất hệ thống.
+                    Tập trung vào phát triển các mô hình trí tuệ nhân tạo, xây
+                    dựng và tối ưu thuật toán dự đoán chất lượng cá ngừ dựa trên
+                    hình ảnh.
                   </p>
                 </div>
               </div>
@@ -261,15 +283,20 @@ const About = () => {
 
             <div>
               <h3 className="mb-4 text-xl font-semibold text-gray-800 dark:text-white">
-                Đội ngũ chuyên môn
+                Cố vấn chuyên môn
               </h3>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                <div className="flex flex-col items-center rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                  <img
+                    src={thay}
+                    alt="PGS.TS. Huỳnh Nguyễn Duy Bảo"
+                    className="mb-2 h-32 w-32 rounded-full border-2 border-ocean-500 object-cover"
+                  />
                   <h4 className="mb-2 text-lg font-medium text-gray-800 dark:text-white">
-                    PGS.TS. Lê Văn C
+                    PGS.TS. Huỳnh Nguyễn Duy Bảo
                   </h4>
                   <p className="mb-2 text-sm text-gray-600 dark:text-gray-300">
-                    Chuyên gia về chất lượng thủy sản
+                    Chuyên gia về công nghệ sinh học biển ứng dụng
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
                     Cố vấn chuyên môn về các tiêu chuẩn chất lượng cá ngừ và
@@ -277,29 +304,20 @@ const About = () => {
                     vực thủy sản.
                   </p>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                <div className="flex flex-col items-center rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
+                  <img
+                    src={nhom}
+                    alt="Các bạn bên ngành Chế biến thủy sản"
+                    className="mb-2 h-32 w-32 rounded-full border-2 border-ocean-500 object-cover"
+                  />
                   <h4 className="mb-2 text-lg font-medium text-gray-800 dark:text-white">
-                    TS. Phạm Thị D
+                    Các bạn bên ngành Chế biến thủy sản
                   </h4>
-                  <p className="mb-2 text-sm text-gray-600 dark:text-gray-300">
-                    Chuyên gia phân tích màu sắc
-                  </p>
+
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Chuyên gia về phân tích màu sắc RGB và L*a*b* trong đánh giá
-                    chất lượng thực phẩm. Đóng góp vào việc phát triển các thuật
-                    toán phân tích.
-                  </p>
-                </div>
-                <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
-                  <h4 className="mb-2 text-lg font-medium text-gray-800 dark:text-white">
-                    ThS. Hoàng Văn E
-                  </h4>
-                  <p className="mb-2 text-sm text-gray-600 dark:text-gray-300">
-                    Chuyên gia xử lý ảnh
-                  </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Chuyên gia về xử lý ảnh và trí tuệ nhân tạo. Phát triển các
-                    thuật toán xử lý ảnh để đánh giá chất lượng cá ngừ.
+                    Hỗ trợ nhóm em trong việc trích xuất dữ liệu mẫu cá ngừ từ
+                    các phương pháp thí nghiệm, có trình độ chuyên môn cao, am
+                    hiểu và đam mê trong lĩnh vực chế biến thủy sản.
                   </p>
                 </div>
               </div>
