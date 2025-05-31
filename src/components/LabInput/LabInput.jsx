@@ -15,7 +15,7 @@ const LabInput = ({ label, name, value, onChange, min, max }) => {
         onChange={onChange}
         min={min}
         max={max}
-        step="0.1"
+        step="0.01"
         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-ocean-500 focus:ring-ocean-500"
         required
       />
