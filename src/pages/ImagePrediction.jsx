@@ -53,7 +53,7 @@ const ImagePrediction = () => {
   return (
     <>
       <BackButton />
-      <div className="mx-auto min-h-screen max-w-2xl p-4">
+      <div className="mx-auto min-h-[70vh] max-w-2xl p-4">
         <h1 className="mb-8 text-center text-3xl font-bold text-ocean-700">
           Dự đoán chất lượng cá ngừ bằng hình ảnh
         </h1>
@@ -73,7 +73,7 @@ const ImagePrediction = () => {
             </div>
 
             {preview && (
-              <div className="mt-4">
+              <div className="mt-4 flex justify-center">
                 <img
                   src={preview}
                   alt="Preview"
@@ -104,37 +104,42 @@ const ImagePrediction = () => {
           {results && (
             <div className="mt-6">
               <h3 className="mb-2 text-lg font-semibold">Kết quả dự đoán</h3>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-xl font-bold">HPO:</h4>
-                  <p className="text-xl font-bold">{results.HPO}</p>
+              <div className="space-y-3">
+                <div className="flex gap-8 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">HPO:</span>
+                  <span className="text-gray-800">
+                    {results.HPO} nmol cumene-OOH/g
+                  </span>
                 </div>
-                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-xl font-bold">MetMb:</h4>
-                  <p className="text-xl font-bold">{results.MetMb}</p>
+                <div className="flex gap-4 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">MetMb:</span>
+                  <span className="text-gray-800">{results.MetMb} %</span>
                 </div>
-                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-xl font-bold">TBARS:</h4>
-                  <p className="text-xl font-bold">{results.TBARS}</p>
+                <div className="flex gap-4 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">TBARS:</span>
+                  <span className="text-gray-800">
+                    {results.TBARS} nmol DMA/g
+                  </span>
                 </div>
-                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-xl font-bold text-ocean-500">L*a*b*</h4>
-                  <p className="text-xl font-bold">L*: {results.LAB[0]}</p>
-                  <p className="text-xl font-bold">a*: {results.LAB[1]}</p>
-                  <p className="text-xl font-bold">b*: {results.LAB[2]}</p>
+                <div className="flex flex-col pt-4">
+                  <span className="mb-2 font-medium text-gray-800">
+                    L*a*b*:
+                  </span>
+                  <span className="text-gray-800">L*: {results.LAB[0]}</span>
+                  <span className="text-gray-800">a*: {results.LAB[1]}</span>
+                  <span className="text-gray-800">b*: {results.LAB[2]}</span>
                 </div>
-                <div className="flex items-center gap-4 rounded-lg bg-gray-50 p-4">
-                  <h4 className="text-xl font-bold text-ocean-500">RGB</h4>
-                  <p className="text-xl font-bold">
+                <div className="flex flex-col pt-4">
+                  <span className="mb-2 font-medium text-gray-800">RGB:</span>
+                  <span className="text-gray-800">
                     R: {results.RGB[0].toFixed(2)}
-                  </p>
-                  <p className="text-xl font-bold">
-                    G:
-                    {results.RGB[1].toFixed(2)}
-                  </p>
-                  <p className="text-xl font-bold">
+                  </span>
+                  <span className="text-gray-800">
+                    G: {results.RGB[1].toFixed(2)}
+                  </span>
+                  <span className="text-gray-800">
                     B: {results.RGB[2].toFixed(2)}
-                  </p>
+                  </span>
                 </div>
               </div>
             </div>

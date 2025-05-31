@@ -7,7 +7,7 @@ const RGBPredict = () => {
     useRGBPredict();
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-[70vh] flex-col">
       <BackButton />
       <div className="container mx-auto flex flex-1 flex-col justify-center p-4">
         <div className="mx-auto w-full max-w-2xl">
@@ -52,24 +52,40 @@ const RGBPredict = () => {
                 Kết quả dự đoán:
               </h2>
               <div className="space-y-3">
-                <div className="flex justify-between border-b border-gray-200 pb-2">
-                  <span className="font-medium text-gray-600">MetMb:</span>
-                  <span className="text-ocean-500">
-                    {prediction.MetMb.toFixed(2)}
+                <div className="flex gap-4 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">MetMb:</span>
+                  <span className="text-gray-800">
+                    {prediction.MetMb.toFixed(2)} %
                   </span>
                 </div>
-                <div className="flex justify-between border-b border-gray-200 pb-2">
-                  <span className="font-medium text-gray-600">TBARS:</span>
-                  <span className="text-ocean-500">
-                    {prediction.TBARS.toFixed(2)}
+                <div className="flex gap-4 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">TBARS:</span>
+                  <span className="text-gray-800">
+                    {prediction.TBARS.toFixed(2)} nmol DMA/g
                   </span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="font-medium text-gray-600">Peroxide:</span>
-                  <span className="text-ocean-500">
-                    {prediction.Peroxide.toFixed(2)}
+                <div className="flex gap-8 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">HPO:</span>
+                  <span className="text-gray-800">
+                    {prediction.Peroxide.toFixed(2)} nmol cumene-OOH/g
                   </span>
                 </div>
+                {prediction.GiaTriChuyenDoi && (
+                  <div className="mt-4 flex flex-col pt-4">
+                    <span className="mb-2 font-medium text-gray-800">
+                      Giá trị chuyển đổi (L*a*b*):
+                    </span>
+                    <span className="text-gray-800">
+                      L*: {prediction.GiaTriChuyenDoi["L*"]}
+                    </span>
+                    <span className="text-gray-800">
+                      a*: {prediction.GiaTriChuyenDoi["a*"]}
+                    </span>
+                    <span className="text-gray-800">
+                      b*: {prediction.GiaTriChuyenDoi["b*"]}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           )}

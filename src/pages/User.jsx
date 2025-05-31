@@ -21,7 +21,7 @@ const User = () => {
   };
   return (
     <>
-      <div className="my-10 mt-20 flex min-h-[500px] flex-col items-center space-y-9 px-4 md:mb-0">
+      <div className="my-10 flex min-h-[500px] flex-col items-center space-y-9 px-4 md:mb-0">
         <div className="space-y-1">
           <h2 className="inline-block bg-gradient-to-r from-ocean-500 via-green-500 to-indigo-400 bg-clip-text text-4xl font-bold text-transparent">
             Xin Chào
@@ -30,7 +30,7 @@ const User = () => {
             Hôm nay tôi có thể giúp gì cho {user ? user.username : "bạn"}
           </p>
         </div>
-        <div className="flex flex-col items-center space-y-2 text-xl text-white md:flex-row md:space-x-9">
+        <div className="flex flex-col items-center space-y-4 text-xl text-white md:flex-row md:space-x-9 md:space-y-0">
           <div
             onClick={handleRGBClick}
             className="flex h-60 w-60 cursor-pointer flex-col items-center justify-center rounded-lg bg-ocean-300 p-4 transition-transform duration-300 ease-in-out hover:scale-105"

@@ -7,7 +7,7 @@ const LabPredict = () => {
     useLabPredict();
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-[70vh] flex-col">
       <BackButton />
       <div className="container mx-auto flex flex-1 flex-col justify-center p-4">
         <div className="mx-auto w-full max-w-2xl">
@@ -18,7 +18,7 @@ const LabPredict = () => {
           <form onSubmit={handleSubmit} className="mb-8 space-y-6">
             <div className="grid grid-cols-3 gap-4">
               <LabInput
-                label="Giá trị L* (0-100)"
+                label="Giá trị L*"
                 name="l"
                 value={labValues.l}
                 onChange={handleInputChange}
@@ -26,7 +26,7 @@ const LabPredict = () => {
                 max={100}
               />
               <LabInput
-                label="Giá trị a* (-128-127)"
+                label="Giá trị a*"
                 name="a"
                 value={labValues.a}
                 onChange={handleInputChange}
@@ -34,7 +34,7 @@ const LabPredict = () => {
                 max={127}
               />
               <LabInput
-                label="Giá trị b* (-128-127)"
+                label="Giá trị b*"
                 name="b"
                 value={labValues.b}
                 onChange={handleInputChange}
@@ -58,24 +58,40 @@ const LabPredict = () => {
                 Kết quả dự đoán:
               </h2>
               <div className="space-y-3">
-                <div className="flex justify-between border-b border-gray-200 pb-2">
-                  <span className="font-medium text-gray-600">MetMb:</span>
-                  <span className="text-ocean-500">
-                    {prediction.MetMb.toFixed(2)}
+                <div className="flex gap-4 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">MetMb:</span>
+                  <span className="text-gray-800">
+                    {prediction.MetMb.toFixed(2)} %
                   </span>
                 </div>
-                <div className="flex justify-between border-b border-gray-200 pb-2">
-                  <span className="font-medium text-gray-600">TBARS:</span>
-                  <span className="text-ocean-500">
-                    {prediction.TBARS.toFixed(2)}
+                <div className="flex gap-4 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">TBARS:</span>
+                  <span className="text-gray-800">
+                    {prediction.TBARS.toFixed(2)} nmol DMA/g
                   </span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="font-medium text-gray-600">Peroxide:</span>
-                  <span className="text-ocean-500">
-                    {prediction.Peroxide.toFixed(2)}
+                <div className="flex gap-8 border-b border-gray-200 pb-2">
+                  <span className="font-medium text-gray-800">HPO:</span>
+                  <span className="text-gray-800">
+                    {prediction.Peroxide.toFixed(2)} nmol cumene-OOH/g
                   </span>
                 </div>
+                {prediction.GiaTriChuyenDoi && (
+                  <div className="mt-4 flex flex-col pt-4">
+                    <span className="mb-2 font-medium text-gray-800">
+                      Giá trị chuyển đổi (RGB):
+                    </span>
+                    <span className="text-gray-800">
+                      R: {prediction.GiaTriChuyenDoi.R}
+                    </span>
+                    <span className="text-gray-800">
+                      G: {prediction.GiaTriChuyenDoi.G}
+                    </span>
+                    <span className="text-gray-800">
+                      B: {prediction.GiaTriChuyenDoi.B}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           )}
