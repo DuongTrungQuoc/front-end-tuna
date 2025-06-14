@@ -26,14 +26,236 @@ const About = () => {
             </p>
           </div>
           <div>
-            <h2 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-white">
-              Công nghệ đang phát triển
-            </h2>
-            <ul className="list-inside list-disc space-y-2">
-              <li>Dự đoán chất lượng cá ngừ bằng màu sắc RGB</li>
-              <li>Dự đoán chất lượng cá ngừ bằng màu sắc L*a*b*</li>
-              <li>Dự đoán chất lượng cá ngừ bằng hình ảnh</li>
-            </ul>
+            <div className="mb-4">
+              <h2 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-white">
+                Công nghệ đang phát triển
+              </h2>
+              <ul className="list-inside list-disc space-y-2">
+                <li>Dự đoán chất lượng cá ngừ bằng màu sắc RGB</li>
+                <li>Dự đoán chất lượng cá ngừ bằng màu sắc L*a*b*</li>
+                <li>Dự đoán chất lượng cá ngừ bằng hình ảnh</li>
+              </ul>
+            </div>
+            <div className="mb-4">
+              <h2 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-white">
+                Các chỉ số đánh giá chất lượng cá ngừ
+              </h2>
+              <ul className="list-inside list-disc space-y-2">
+                <li>
+                  <span className="font-bold">Metmyoglobin (metMb)</span>: Đây
+                  là chỉ số để thể hiện tỷ lệ myoglobin (một protein liên kết
+                  với sắt và oxi) có trong cá chuyển hóa thành metmyoglobin.
+                  MetMb là chất có màu nâu, nếu như mức độ của metMb cao là dấu
+                  hiệu của sự biến màu và giảm độ tươi của cơ thịt cá.
+                  <div class="mb-8 overflow-x-auto">
+                    <table class="min-w-full rounded-lg border border-gray-300 bg-white text-left text-sm text-gray-800 shadow-md">
+                      <thead class="bg-blue-100 text-xs uppercase text-blue-800">
+                        <tr>
+                          <th
+                            scope="col"
+                            class="border border-gray-300 px-4 py-3"
+                          >
+                            Tỷ lệ metMb (% tổng myoglobin)
+                          </th>
+                          <th
+                            scope="col"
+                            class="border border-gray-300 px-4 py-3"
+                          >
+                            Đánh giá độ tươi
+                          </th>
+                          <th
+                            scope="col"
+                            class="border border-gray-300 px-4 py-3"
+                          >
+                            Biểu hiện cảm quan
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="border-b border-gray-200 bg-white hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            &lt; 20%
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-semibold text-green-600">
+                            Rất tươi
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Thịt cá màu đỏ tươi, sáng bóng
+                          </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 bg-gray-50 hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            20 – 40%
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-medium text-green-500">
+                            Tươi
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Màu thịt hơi sẫm, bắt đầu mất độ bóng
+                          </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 bg-white hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            40 – 60%
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-medium text-yellow-600">
+                            Kém tươi
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Màu chuyển nâu nhạt, dễ thấy khi cắt
+                          </td>
+                        </tr>
+                        <tr class="border-b border-gray-200 bg-gray-50 hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            &gt; 60%
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-semibold text-red-600">
+                            Hư/biến màu
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Màu nâu xám, mất hoàn toàn màu đỏ, thịt xỉn
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+
+                <li>
+                  <span className="font-bold">Peroxide</span>: Đây là chỉ số
+                  phản ánh giai đoạn đầu của quá trình oxy hóa lipid trong cá,
+                  peroxide là những hợp chất trung gian được hình thành khi chất
+                  béo bắt đầu bị oxy hóa. Giá trị peroxide càng cao cho thấy quá
+                  trình hư hỏng lipid đang diễn ra, làm giảm độ tươi và chất
+                  lượng cảm quan của cá.
+                  <div class="mb-8 overflow-x-auto">
+                    <table class="min-w-full rounded border border-gray-300 text-left text-sm text-gray-800">
+                      <thead class="bg-blue-100 text-xs uppercase text-blue-800">
+                        <tr>
+                          <th class="border border-gray-300 px-4 py-2">
+                            Chỉ số Peroxide
+                          </th>
+                          <th class="border border-gray-300 px-4 py-2">
+                            Mức độ oxy hóa
+                          </th>
+                          <th class="border border-gray-300 px-4 py-2">
+                            Biểu hiện cảm quan
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="bg-white hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            &lt; 5 meq/kg
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-medium text-green-600">
+                            Không/ít
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Không có mùi lạ, vị béo tự nhiên
+                          </td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            5 – 10 meq/kg
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-medium text-yellow-600">
+                            Bắt đầu
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Có thể có mùi tanh nhẹ, vị hơi lạ
+                          </td>
+                        </tr>
+                        <tr class="bg-white hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            10 – 20 meq/kg
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-medium text-orange-600">
+                            Trung bình
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Mùi lạ rõ rệt, vị béo biến chất
+                          </td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            &gt; 20 meq/kg
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-semibold text-red-600">
+                            Cao/nguy hiểm
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Mùi ôi, vị gắt khó chịu, không nên tiêu thụ
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+
+                <li>
+                  <span className="font-bold">
+                    TBARS (Thiobarbituric Acid Reactive Substances)
+                  </span>
+                  : Đây là chỉ số dùng để đánh giá các sản phẩm oxy hóa thứ cấp,
+                  đặc biệt là malondialdehyde (MDA), một chất gây mùi và vị ôi.
+                  TBARS càng cao chứng tỏ cá đã trải qua mức độ oxy hóa sâu hơn,
+                  ảnh hưởng đến mùi vị và an toàn thực phẩm.
+                  <div class="overflow-x-auto">
+                    <table class="min-w-full rounded border border-gray-300 text-left text-sm text-gray-800">
+                      <thead class="bg-blue-100 text-xs uppercase text-blue-800">
+                        <tr>
+                          <th class="border border-gray-300 px-4 py-2">
+                            TBARS (mg MDA/kg)
+                          </th>
+                          <th class="border border-gray-300 px-4 py-2">
+                            Đánh giá
+                          </th>
+                          <th class="border border-gray-300 px-4 py-2">
+                            Biểu hiện cảm quan
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="bg-white hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            &lt; 1.0
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-medium text-green-600">
+                            Tươi
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Không mùi ôi, vị sạch
+                          </td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            1.0 – 2.5
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-medium text-yellow-600">
+                            Kém tươi
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Có mùi ôi nhẹ, vị cá không tự nhiên
+                          </td>
+                        </tr>
+                        <tr class="bg-white hover:bg-blue-50">
+                          <td class="border border-gray-200 px-4 py-2">
+                            &gt; 2.5
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2 font-semibold text-red-600">
+                            Hư/ô nhiễm
+                          </td>
+                          <td class="border border-gray-200 px-4 py-2">
+                            Mùi ôi rõ, vị hăng, mất an toàn thực phẩm
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

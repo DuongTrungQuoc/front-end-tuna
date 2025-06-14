@@ -1,6 +1,7 @@
 import { useRGBPredict } from "../hooks/useRGBPredict";
 import RGBInput from "../components/RGBInput/RGBInput";
 import BackButton from "../components/BackButton/BackButton";
+import ColorWheel from "../components/ColorWheel";
 
 const RGBPredict = () => {
   const { rgbValues, prediction, loading, handleInputChange, handleSubmit } =
@@ -22,18 +23,21 @@ const RGBPredict = () => {
                 name="r"
                 value={rgbValues.r}
                 onChange={handleInputChange}
+                disabled={loading}
               />
               <RGBInput
                 label="Giá trị G (0-255)"
                 name="g"
                 value={rgbValues.g}
                 onChange={handleInputChange}
+                disabled={loading}
               />
               <RGBInput
                 label="Giá trị B (0-255)"
                 name="b"
                 value={rgbValues.b}
                 onChange={handleInputChange}
+                disabled={loading}
               />
             </div>
 
@@ -45,6 +49,26 @@ const RGBPredict = () => {
               {loading ? "Đang dự đoán..." : "Dự đoán"}
             </button>
           </form>
+
+          {prediction && (
+            <div className="flex items-center justify-evenly gap-6 py-4">
+              <ColorWheel
+                rgb={[
+                  Number(rgbValues.r),
+                  Number(rgbValues.g),
+                  Number(rgbValues.b),
+                ]}
+                size={140}
+              />
+              <div
+                className="h-[130px] w-[130px] rounded border"
+                style={{
+                  backgroundColor: `rgb(${rgbValues.r}, ${rgbValues.g}, ${rgbValues.b})`,
+                }}
+                title={`RGB: ${rgbValues.r}, ${rgbValues.g}, ${rgbValues.b}`}
+              />
+            </div>
+          )}
 
           {prediction && (
             <div className="rounded-lg bg-white p-6 shadow-lg">

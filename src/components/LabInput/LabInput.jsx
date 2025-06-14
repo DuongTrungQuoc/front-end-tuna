@@ -1,9 +1,17 @@
-const LabInput = ({ label, name, value, onChange, min, max }) => {
+const LabInput = ({
+  label,
+  name,
+  value,
+  onChange,
+  min,
+  max,
+  disabled = false,
+}) => {
   return (
     <div>
       <label
         htmlFor={name}
-        className="mb-2 block text-sm font-medium text-gray-900"
+        className="mb-2 block text-sm font-medium text-gray-700"
       >
         {label}
       </label>
@@ -13,10 +21,13 @@ const LabInput = ({ label, name, value, onChange, min, max }) => {
         id={name}
         value={value}
         onChange={onChange}
+        disabled={disabled}
+        className={`w-full rounded-lg border border-gray-300 p-2.5 focus:border-ocean-500 focus:outline-none focus:ring-1 focus:ring-ocean-500 ${
+          disabled ? "cursor-not-allowed bg-gray-100" : ""
+        }`}
         min={min}
         max={max}
         step="0.01"
-        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-ocean-500 focus:ring-ocean-500"
         required
       />
     </div>

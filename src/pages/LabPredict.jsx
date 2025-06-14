@@ -1,6 +1,7 @@
 import { useLabPredict } from "../hooks/useLabPredict";
 import LabInput from "../components/LabInput/LabInput";
 import BackButton from "../components/BackButton/BackButton";
+import ColorWheel from "../components/ColorWheel";
 
 const LabPredict = () => {
   const { labValues, prediction, loading, handleInputChange, handleSubmit } =
@@ -24,6 +25,7 @@ const LabPredict = () => {
                 onChange={handleInputChange}
                 min={0}
                 max={100}
+                disabled={loading}
               />
               <LabInput
                 label="Giá trị a*"
@@ -32,6 +34,7 @@ const LabPredict = () => {
                 onChange={handleInputChange}
                 min={-128}
                 max={127}
+                disabled={loading}
               />
               <LabInput
                 label="Giá trị b*"
@@ -40,6 +43,7 @@ const LabPredict = () => {
                 onChange={handleInputChange}
                 min={-128}
                 max={127}
+                disabled={loading}
               />
             </div>
 
@@ -51,6 +55,36 @@ const LabPredict = () => {
               {loading ? "Đang dự đoán..." : "Dự đoán"}
             </button>
           </form>
+
+          {prediction && (
+            <div className="flex items-center justify-evenly gap-6 py-4">
+              <ColorWheel
+                rgb={
+                  prediction.GiaTriChuyenDoi
+                    ? [
+                        prediction.GiaTriChuyenDoi.R,
+                        prediction.GiaTriChuyenDoi.G,
+                        prediction.GiaTriChuyenDoi.B,
+                      ]
+                    : [0, 0, 0]
+                }
+                size={140}
+              />
+              <div
+                className="h-[130px] w-[130px] rounded border"
+                style={{
+                  backgroundColor: prediction.GiaTriChuyenDoi
+                    ? `rgb(${prediction.GiaTriChuyenDoi.R}, ${prediction.GiaTriChuyenDoi.G}, ${prediction.GiaTriChuyenDoi.B})`
+                    : "#fff",
+                }}
+                title={
+                  prediction.GiaTriChuyenDoi
+                    ? `RGB: ${prediction.GiaTriChuyenDoi.R}, ${prediction.GiaTriChuyenDoi.G}, ${prediction.GiaTriChuyenDoi.B}`
+                    : ""
+                }
+              />
+            </div>
+          )}
 
           {prediction && (
             <div className="rounded-lg bg-white p-6 shadow-lg">

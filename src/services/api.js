@@ -8,7 +8,8 @@ export const predictRGB = async (rgbValues) => {
   };
 
   const response = await axios.post(
-    "https://back-end-tuna.onrender.com/v1/predict",
+    //"https://back-end-tuna.onrender.com/v1/predict",
+    "https://ad49-34-16-250-22.ngrok-free.app/predict",
     requestData,
   );
   return response.data;
@@ -21,7 +22,8 @@ export const predictLab = async (labValues) => {
   };
 
   const response = await axios.post(
-    "https://back-end-tuna.onrender.com/v1/predict",
+    //"https://back-end-tuna.onrender.com/v1/predict",
+    "https://ad49-34-16-250-22.ngrok-free.app/predict",
     requestData,
   );
   return response.data;
@@ -32,7 +34,7 @@ export const predictImage = async (imageFile) => {
   formData.append("file", imageFile);
 
   const response = await axios.post(
-    "https://back-end-tuna.onrender.com/v1/predict/image", // https://back-end-tuna.onrender.com/v1/predict/image
+    "https://f7bd-34-168-206-179.ngrok-free.app/predict", // https://back-end-tuna.onrender.com/v1/predict/image
     formData,
     {
       headers: {

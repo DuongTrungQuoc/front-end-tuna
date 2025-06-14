@@ -2,6 +2,7 @@ import { useState } from "react";
 import { predictImage } from "../services/api";
 import BackButton from "../components/BackButton/BackButton";
 import { toast } from "react-toastify";
+import ColorWheel from "../components/ColorWheel";
 
 const ImagePrediction = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -68,7 +69,10 @@ const ImagePrediction = () => {
                 type="file"
                 accept="image/*"
                 onChange={handleFileSelect}
-                className="w-full rounded-md border border-gray-300 p-2"
+                disabled={loading}
+                className={`w-full rounded-md border border-gray-300 p-2 ${
+                  loading ? "cursor-not-allowed bg-gray-100" : ""
+                }`}
               />
             </div>
 
@@ -98,6 +102,19 @@ const ImagePrediction = () => {
           {error && (
             <div className="mt-4 rounded-md bg-red-100 p-3 text-red-700">
               {error}
+            </div>
+          )}
+
+          {results && (
+            <div className="flex items-center justify-evenly gap-6 py-4">
+              <ColorWheel rgb={results.RGB} size={140} />
+              <div
+                className="h-[130px] w-[130px] rounded border"
+                style={{
+                  backgroundColor: `rgb(${results.RGB[0]}, ${results.RGB[1]}, ${results.RGB[2]})`,
+                }}
+                title={`RGB: ${results.RGB[0]}, ${results.RGB[1]}, ${results.RGB[2]}`}
+              />
             </div>
           )}
 
